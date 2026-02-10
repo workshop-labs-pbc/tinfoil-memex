@@ -1,0 +1,31 @@
+shim-version: v0.3.12@sha256:b81f2295ae6750d61e94f810ce24077360001b6ec795d13643f3170df29e304d
+cvm-version: 0.6.5
+cpus: 16
+memory: 65536
+
+containers:
+  - name: "memex"
+    image: "us-central1-docker.pkg.dev/workshop-labs-pbc/pollux-docker/cpu@sha256:05a3df743dde1cf6dde66b87446c9cb9eef2093ef485b0db4fa828a31bdff69d"
+    entrypoint: ["python", "-m", "src.memex.main", "--prod", "--port", "8001"]
+    env:
+      - KEY_MODE: "real_keys"
+      - LOG_LEVEL: "INFO"
+      - EMBEDDING_SERVER_URL: "https://confidential-pollux-embeddings.debug.wsl.functions.tinfoil.sh"
+    secrets:
+      - DATABASE_URL
+      - GOOGLE_CLIENT_ID
+      - GOOGLE_CLIENT_SECRET
+      - TINFOIL_API_KEY
+      - EXA_API_KEY
+
+shim:
+  listen-port: 443
+  upstream-port: 8001
+  publish-attestation: true
+  tls-challenge: dns
+  paths:
+    - /ping
+    - /set_dek
+    - /v1/context/*
+    - /v1/personalize/*
+    - /v1/user/*
