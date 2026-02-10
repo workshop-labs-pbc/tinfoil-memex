@@ -13,8 +13,6 @@ containers:
       - EMBEDDING_SERVER_URL: "https://confidential-pollux-embeddings.debug.wsl.functions.tinfoil.sh"
     secrets:
       - DATABASE_URL
-      - GOOGLE_CLIENT_ID
-      - GOOGLE_CLIENT_SECRET
       - TINFOIL_API_KEY
       - EXA_API_KEY
 
