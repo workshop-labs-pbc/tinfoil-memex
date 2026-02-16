@@ -5,7 +5,7 @@ memory: 65536
 
 containers:
   - name: "memex"
-    image: "us-central1-docker.pkg.dev/workshop-labs-pbc/pollux-docker/cpu@sha256:05a3df743dde1cf6dde66b87446c9cb9eef2093ef485b0db4fa828a31bdff69d"
+    image: "us-central1-docker.pkg.dev/workshop-labs-pbc/pollux-docker/cpu@sha256:7e14bbab638961f0f13ce8a5968a5a9e9b2321b6985f577dd572449a4d2bbf03"
     entrypoint: ["python", "-m", "src.memex.main", "--prod", "--port", "8001"]
     env:
       - KEY_MODE: "real_keys"
