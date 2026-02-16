@@ -15,6 +15,7 @@ containers:
       - DATABASE_URL
       - TINFOIL_API_KEY
       - EXA_API_KEY
+      - INTERNAL_SERVICE_SECRET
 
 shim:
   listen-port: 443
