@@ -10,7 +10,7 @@ containers:
     env:
       - KEY_MODE: "real_keys"
       - LOG_LEVEL: "INFO"
-      - EMBEDDING_SERVER_URL: "https://confidential-pollux-embeddings.debug.wsl.functions.tinfoil.sh"
+      - EMBEDDING_SERVER_URL: "https://confidential-pollux-embeddings.debug.wsl.containers.tinfoil.dev"
     secrets:
       - DATABASE_URL
       - TINFOIL_API_KEY
